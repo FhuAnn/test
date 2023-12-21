@@ -69,9 +69,9 @@ namespace _DoAn.Models
             ConnectDB connect = new ConnectDB();
             return connect.GetId(cmd).ToString();
         }
-        public bool UpdateProduct(string quantity, string id)
+        public bool UpdateProduct(string quantity, string id) //*
         {
-            SqlCommand cmd = new SqlCommand("Update Product setlv1Quantity =lv1Quantity + @quan Where Product_id = @id ");
+            SqlCommand cmd = new SqlCommand("Update Product set lv1Quantity =lv1Quantity + @quan Where Product_id = @id ");
             cmd.Parameters.Add("@quan", SqlDbType.Int);
             cmd.Parameters["@quan"].Value = Convert.ToInt32(quantity);
             cmd.Parameters.Add("@id", SqlDbType.Int);
